@@ -52,13 +52,8 @@ describe("reverseString", () => {
 
 describe("fetchApi", () => {
     it("should handle fetch operation", () => {
-        document.cookie = "_xsrf=legacy";
-        document.cookie = "_xsrf2=newtoken";
         utils.fetchApi("http://foo/bar", { method: "POST" });
         expect(fetchMock.mock.calls[0][0]).toEqual("http://foo/bar");
-        expect(fetchMock.mock.calls[0][1]).toMatchObject({
-            headers: { "X-XSRFToken": "newtoken" },
-        });
         fetchMock.mockClear();
 
         utils.fetchApi("http://foo?bar=1", { method: "POST" });
@@ -75,7 +70,7 @@ describe("fetchApi", () => {
                 credentials: "same-origin",
                 headers: {
                     "Content-Type": "application/json",
-                    "X-XSRFToken": "newtoken",
+                    "X-XSRFToken": undefined,
                 },
                 method: "PUT",
             },

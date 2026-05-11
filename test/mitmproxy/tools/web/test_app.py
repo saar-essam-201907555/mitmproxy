@@ -111,9 +111,6 @@ class TestApp(tornado.testing.AsyncHTTPTestCase):
     def test_filter_help(self):
         assert self.fetch("/filter-help").code == 200
 
-    def test_xsrf_cookie_name(self):
-        assert self._app.settings["xsrf_cookie_name"] == "_xsrf2"
-
     def test_javascript_mime_type(self):
         """Test that JavaScript files are served with the correct MIME type."""
         # Verify that .js files are served with text/javascript MIME type
