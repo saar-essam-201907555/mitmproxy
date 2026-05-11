@@ -925,6 +925,7 @@ class Application(tornado.web.Application):
             template_path=os.path.join(os.path.dirname(__file__), "templates"),
             static_path=os.path.join(os.path.dirname(__file__), "static"),
             xsrf_cookies=True,
+            xsrf_cookie_name="_xsrf2",
             xsrf_cookie_kwargs=dict(samesite="Strict"),
             cookie_secret=secrets.token_bytes(32),
             debug=debug,

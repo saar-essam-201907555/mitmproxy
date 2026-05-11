@@ -78,7 +78,7 @@ function getCookie(name) {
 }
 
 let xsrf = () => {
-    const cached = getCookie("_xsrf");
+    const cached = getCookie("_xsrf2");
     xsrf = () => cached;
     return xsrf();
 };
